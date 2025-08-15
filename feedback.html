@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parth Tripathi • Feedback</title>
+  <link rel="stylesheet" href="styles.css"/><script defer src="script.js"></script>
+</head>
+<body class="fade-in">
+<header class="nav">
+  <a class="brand" href="index.html">PT</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="honours.html">Honours</a>
+    <a href="socials.html">Socials</a>
+    <a href="feedback.html" class="btn active">Feedback</a>
+  </nav>
+</header>
+
+<main class="container slide-up">
+  <h1>Your Feedback Matters</h1>
+  <form id="feedbackForm" class="card form">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" placeholder="Your name" required/>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" placeholder="you@example.com" required/>
+
+    <fieldset class="stars">
+      <legend>Rate this portfolio</legend>
+      <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
+      <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+      <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+      <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+      <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+      
+    </fieldset>
+
+    <label for="msg">Feedback</label>
+    <textarea id="msg" name="message" rows="5" placeholder="Share your thoughts..." required></textarea>
+
+    <button class="btn" type="submit">Submit</button>
+  </form>
+</main>
+
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <h2 id="modalTitle">Thank you for your feedback! 🎉</h2>
+    <p>Your response has been recorded.</p>
+    <button class="btn" id="closeModal">Close</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© <span id="yr"></span> Parth Tripathi</p>
+</footer>
+</body>
+</html>
