@@ -77,25 +77,47 @@ document.querySelectorAll('a[href]').forEach(a=>{
     });
   }
 });
-document.addEventListener("DOMContentLoaded", function () {
-    // Check if the screen width is less than 1024px (tablet & mobile)
-    if (window.innerWidth < 1080) {
-        // Replace the entire body with the message
-        document.body.innerHTML = `
-            <div style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background: #111;
-                color: white;
-                font-family: Arial, sans-serif;
-                text-align: left;
-                padding: 20px;
-            ">
-                <h2>📵 Please open this website on a desktop or in desktop view</h2>
-            </div>
-        `;
+function checkDesktopView() {
+  let minDesktopWidth = 1024; // adjust as needed
+  let existingWarning = document.getElementById("desktop-warning");
+
+  if (window.innerWidth < minDesktopWidth) {
+    // if warning not already shown
+    if (!existingWarning) {
+      document.body.innerHTML = "";
+
+      let warning = document.createElement("div");
+      warning.id = "desktop-warning";
+      warning.style.position = "fixed";
+      warning.style.top = "0";
+      warning.style.left = "0";
+      warning.style.width = "100%";
+      warning.style.height = "100%";
+      warning.style.background = "#111";
+      warning.style.color = "#fff";
+      warning.style.display = "flex";
+      warning.style.justifyContent = "center";
+      warning.style.alignItems = "center";
+      warning.style.fontSize = "1.5rem";
+      warning.style.textAlign = "center";
+      warning.style.padding = "20px";
+      warning.innerText = "⚠️ Please open the web page in Desktop or enable Desktop View on your phone.";
+
+      document.body.appendChild(warning);
     }
-});
+  } else {
+    // reload page if resized back to desktop view
+    if (existingWarning) {
+      location.reload();
+    }
+  }
+}
+
+// Run check on load
+document.addEventListener("DOMContentLoaded", checkDesktopView);
+
+// Run check on resize
+window.addEventListener("resize", checkDesktopView);
+
+  
 
