@@ -101,7 +101,7 @@ function checkDesktopView() {
       warning.style.fontSize = "1.5rem";
       warning.style.textAlign = "center";
       warning.style.padding = "20px";
-      warning.innerText = "⚠️ Please open the web page in Desktop or enable Desktop View on your phone.";
+      warning.innerText = "⚠️ Please open the web page in Desktop or Laptop ";
 
       document.body.appendChild(warning);
     }
@@ -120,4 +120,5 @@ document.addEventListener("DOMContentLoaded", checkDesktopView);
 window.addEventListener("resize", checkDesktopView);
 
   
+
 
